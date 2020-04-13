@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta charset="UTF-8" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <style>
+        * {
+            --fontSecond: #C9CCD0;
+            --prime-color: #1C232C;
+            --background: #F5F5F5;
+            --side-background: #448391;
+        }
+        
+        html,
+        body {
+            margin: 0px;
+            height: 100vh;
+            font-family: Roboto;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .image img,
+        .my img {
+            border-radius: 50%;
+        }
+        
+        aside {
+            display: table;
+            float: left;
+            width: 25%;
+            background-color: var(--prime-color);
+            height: 100vh;
+            border-radius: 0px 30px 30px 0px;
+            position: relative;
+        }
+        
+        aside header {
+            position: relative;
+            top: 0px;
+            margin: 0vh 1vw;
+            color: var(--prime-color);
+            padding: 1.5vh 0px;
+            border-bottom: 1px solid var(--fontSecond);
+        }
+        
+        aside header img {
+            width: 35%;
+            float: left;
+            height: 35%;
+        }
+        
+        aside header p {
+            font-family: Roboto;
+            font-size: 4.5vw;
+            color: var(--fontSecond);
+            display: inline-block;
+            padding-top: 1vh;
+            margin: 0%;
+            height: auto;
+        }
+        
+        aside nav {
+            color: var(--fontSecond);
+            margin-top: 20px;
+            /* margin-left: 10%; */
+        }
+        
+        aside nav .but {
+            clear: both;
+            width: 100%;
+            padding: 1vh;
+            position: relative;
+            font-size: 170%;
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+            color: var(--fontSecond);
+        }
+        
+        aside nav .but:hover {
+            background-color: var(--side-background);
+        }
+        
+        .profile {
+            width: 100%;
+            position: relative;
+            transform: translateX(-4%);
+        }
+        
+        .profile .my {
+            width: 35%;
+            float: left;
+            color: var(--prime-color);
+            display: inline-table;
+            margin-left: 10%;
+        }
+        
+        .profile .name {
+            position: relative;
+            display: inline-table;
+            margin-left: 3%;
+            top: 45%;
+            font-size: 160%;
+            transform: translateY(10%);
+            width: 50%;
+            float: left;
+        }
+        
+        .profile .name a {
+            color: var(--fontSecond);
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+        
+        aside nav .but img {
+            width: 7%;
+            margin-right: 2vh;
+            margin-left: 10%;
+        }
+        
+        .setting {
+            position: absolute;
+            bottom: 1px;
+            right: 10px;
+            transition: .3s;
+            padding: 1.8vh;
+            transform: rotate(0deg);
+            /* margin: 3vh; */
+        }
+        
+        .setting:hover {
+            transform: rotate(-90deg);
+        }
+        /* ///////////////////////content/////////////////// */
+        
+        .content {
+            display: table;
+            background: var(--background);
+            width: 75%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .content .edit {
+            position: relative;
+            top: 5vh;
+            float: right;
+            right: 8%;
+            z-index: 3;
+        }
+        
+        .content .form {
+            width: 55%;
+            float: left;
+            color: var(--prime-color);
+            /* font-size: 235%; */
+            position: absolute;
+            top: 40vh;
+            transform: translateY(-50%);
+            margin: 0px 3vw;
+        }
+        
+        .content .image {
+            width: 40%;
+            float: right;
+            position: relative;
+            top: 40vh;
+            right: -5%;
+            transform: translateY(-50%);
+        }
+        /* .image img:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+        } */
+        
+        .image .v {
+            width: 25vw;
+            height: 25vw;
+        }
+        
+        .content .image input[type="file"] {
+            position: absolute;
+            bottom: 6.5%;
+            right: 29%;
+            width: 5vw;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            height: 6vh;
+            z-index: 3;
+            cursor: pointer;
+        }
+        
+        .content .image span {
+            position: absolute;
+            z-index: 1;
+            bottom: 4.5%;
+            right: 30.5%;
+            cursor: pointer;
+        }
+        
+        .form div {
+            margin: 3vh;
+        }
+        
+        .form span {
+            display: inline-block;
+            font-size: 215%;
+            background-color: var(--background);
+        }
+        
+        .form input[type="text"] {
+            padding: 0px 1.2vw;
+            border-width: 0;
+            display: inline-block;
+            font-size: 200%;
+            transition: 0.4S;
+            background-color: var(--background);
+            width: 70%;
+        }
+        
+        #phone,
+        #address {
+            width: 56%;
+        }
+        
+        .form input[type="text"]:focus {
+            outline: none;
+            border: 2px solid var(--prime-color);
+            border-radius: 25px;
+            background-color: rgb(240, 236, 236);
+        }
+        /* form {
+            width: 70vw;
+            height: 100%;
+        } */
+        
+        .button {
+            position: absolute;
+            bottom: 7%;
+            left: 4%;
+            min-width: 40%;
+        }
+        
+        .save,
+        .cancel {
+            font-size: 110%;
+            width: 5vw;
+            height: 4vh;
+            color: var(--prime-color);
+            border-radius: 25px;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+            margin: 2%;
+            min-width: 104px;
+            min-height: 37px;
+        }
+        
+        .cancel {
+            background: #E16031;
+        }
+        
+        .save {
+            background: #F49C2D;
+        }
+        
+        .save:focus,
+        .cancel:focus {
+            outline: none;
+        }
+        
+        .cancel:hover {
+            background-color: rgb(206, 78, 32);
+        }
+        
+        .save:hover {
+            background: rgb(240, 147, 33);
+        }
+        
+        .save:active,
+        .cancel:active {
+            transform: translateY(3%);
+            border: 0 solid transparent;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+        }
+        
+        .edit {
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .edit:active {
+            transform: translateY(3%);
+            border: 0 solid transparent;
+        }
+        
+        .active {
+            display: none;
+        }
+        /* /////////responsive /////// */
+        
+        @media only screen and (max-width: 900px) {
+            .but span,
+            aside header p,
+            .profile .name {
+                display: none;
+            }
+            aside nav .but img {
+                width: 20px;
+            }
+            aside {
+                width: 30px;
+                height: 100vh;
+            }
+            .profile .my {
+                width: 35px;
+                margin-left: 2vw;
+            }
+            header div img {
+                width: 80%;
+                /* margin: 0.3vw; */
+            }
+            aside header {
+                height: 30px;
+            }
+            /* ///////////////////con////////////// */
+            .content {
+                width: 86%;
+            }
+            html {
+                background-color: var(--background);
+            }
+            .content .image {
+                float: none;
+                width: 100%;
+                top: 20vh;
+                right: -31%;
+            }
+            .image .v {
+                width: 35vw;
+                height: 35vw;
+            }
+            .content .form {
+                width: 100%;
+                float: none;
+                top: 60vh;
+                display: block;
+            }
+            .form span {
+                font-size: 150%;
+            }
+            .button {
+                width: 100%;
+                bottom: 2.5%;
+            }
+            .save {
+                margin-right: 13vw;
+            }
+            .form input[type="text"] {
+                width: 75%;
+                font-size: 150%;
+            }
+            .content .image span {
+                right: 59%;
+                bottom: 6.5%;
+            }
+            .content .image input[type="file"] {
+                right: 61%;
+                bottom: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <aside>
+        <header>
+            <div><img src="img/logo.png" alt="logo" /></div>
+            <p>CMMS</p>
+        </header>
+        <nav>
+            <div class="profile">
+                <div class="my">
+                    <img src="img/myicon.png" alt="my_icon" width="100%" height="100%">,
+                </div>
+                <div class="name">
+                    <a href="info.html">akram assi</a>
+                    <a href="#">logout <img src="img/logout.png" width="12%"></a>
+                </div>
+            </div>
+            <div style="clear: both;">
+                <a class="but" href="#" style="padding-top: 3.5vh;"><img src="img/home.png"><span>Home</span></a>
+                <a class="but" href="#"><img src="img/empl.png"><span>Employees</span></a>
+                <a class="but" href="#"><img src="img/stat.png"><span>Statistics</span></a>
+                <a class="but" href="#"><img src="img/car-parts.png"><span>Part</span></a>
+                <a class="but" href="#"><img src="img/problem.png"><span>Problem</span></a>
+                <a class="but" href="#"><img src="img/history.png"><span>History</span></a>
+                <a class="but" href="#"><img src="img/list.png"><span>Car in center</span></a>
+                <a class="but" href="#"><img src="img/customers.png"><span>Custamer</span></a>
+                <a class="setting" href="info.html"><img src="img/gear.png" width="100%"></a>
+            </div>
+
+        </nav>
+    </aside>
+    <div class="content">
+        <form method="POST">
+            <div class="edit" onclick="edit();"><img src="img/edit.png"></div>
+
+            <div class="image">
+
+                <img class="v" src="img/download.jpeg">
+                <span class="active"><img src="img/plus.png" width="90%"></span>
+                <input class="active" type="file" id="img" name="img" accept="image/*">
+
+            </div>
+            <div class="form">
+                <div>
+                    <span>Name :</span>
+                    <input type="text" id="name" disabled>
+                    <!-- noor mohammad fade kalily</span> -->
+                </div>
+                <div>
+                    <span>ID :</span>
+                    <input type="text" id="id" disabled>
+                    <!-- 4 45456445</span> -->
+                </div>
+                <div>
+                    <span>Email :</span>
+                    <input type="text" id="email" disabled>
+                    <!-- noor125@gmail.com</input> -->
+                </div>
+                <div>
+                    <span>Address :</span>
+                    <input type="text" id="address" disabled>
+                    <!-- Nablus</span> -->
+                </div>
+                <div>
+                    <span style="font-size: 170%;">phone number :</span>
+                    <input type="text" id="phone" value="dsdsds" disabled>
+                    <!-- 05921358854</span> -->
+                </div>
+            </div>
+            <div class="button active">
+                <input type="submit" class="save" value="save">
+                <INPUT TYPE="button" onClick="history.go(0)" VALUE="cancel" class="cancel">
+            </div>
+        </form>
+    </div>
+    <script>
+        function edit() {
+            var dis = document.getElementsByClassName("active");
+            for (i = 0; i < dis.length; i++) {
+                dis[i].style.display = "block";
+                console.log(i);
+            }
+            document.getElementById("name").disabled = false;
+            document.getElementById("id").disabled = false;
+            document.getElementById("email").disabled = false;
+            document.getElementById("address").disabled = false;
+            document.getElementById("phone").disabled = false;
+        }
+    </script>
+
+</body>
+
+</html>
